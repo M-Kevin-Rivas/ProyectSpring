@@ -6,7 +6,10 @@
     <title th:text="${title}">Document</title>
 </head>
 <body>
-    <h1 th:text="${nameOwner}"></h1>
-    <h2 th:text="${description}"></h2>
+    <h1 th:text="${userOwner.name_user}"></h1>
+    <!-- Para acceder al valor, se debe usar el atributo como se le esta nombrando en el controlador y colocar el nombre del atributo de la clase tal cual(por debajo hace un get aunque no lo escribas)   -->
+    <h1 th:text="${userOwner.age_user}"></h1>
+    <h1 th:text="${userOwner.email_user}"></h1>
+    <!--<h1 th:text="${nameOwner}"></h1> -->
 </body>
 </html>

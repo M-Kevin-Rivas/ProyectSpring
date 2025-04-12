@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th ="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${tittle}">Document</title>
+</head>
+<body>
+    <h1 th:text="${tittle}"></h1>
+    <div th:if="${users.isEmpty()}" th:text="${'No hay usuarios'}"></div>
+    <table th:unless ="${not users.isEmpty()}" th:text="${'No se puede armar la tabla sin usuarios'}"></table>
+    <table th:if="${not users.isEmpty()}">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Password</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.id_user}"></td>
+                <td th:text="${user.name_user}"></td>
+                <td th:text="${user.age_user}"></td>
+                <td th:text="${user.email_user}"></td>
+                <td th:if ="${user.password_user!=null}" th:text="${user.password_user}"></td>
+                <td th:unless ="${user.password_user!=null}" th:text="${'No tiene password'}"></td>
+                <!-- Es una forma de renderizar en el codigo HTML cuando falta informacion del controlador -->
+                <!--<p th:if="${condicion}">Este párrafo se muestra si la condición es verdadera.</p>
+                <p th:unless="${condicion}">Este párrafo se muestra si la condición es falsa.</p>-->
+            </tr>
+        </tbody>
+
+</body>
+</html>

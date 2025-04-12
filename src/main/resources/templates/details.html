@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title th:text="${title}">Document</title>
+    <title th:text="${tittle}">Document</title>
 </head>
 <body>
     <h1 th:text="${userOwner.name_user}"></h1>
@@ -11,5 +11,9 @@
     <h1 th:text="${userOwner.age_user}"></h1>
     <h1 th:text="${userOwner.email_user}"></h1>
     <!--<h1 th:text="${nameOwner}"></h1> -->
+    <ul>
+        <li th:if="${userOwner.password_user}" th:text="${userOwner.password_user}"></li>
+        <li th:if="${userOwner.password_user == null}" th:text="${'No tiene password'}"></li>
+        <!-- Es una forma de renderizar en el codigo HTML cuando falta informacion del controlador -->
 </body>
 </html>

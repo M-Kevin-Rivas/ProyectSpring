@@ -6,12 +6,24 @@ public class User {
     private String name_user;
     private int age_user;
     private String email_user;
+    private String password_user;
     
     public User(String id_user, String name_user, int age_user, String email_user) {
         this.id_user = id_user;
         this.name_user = name_user;
         this.age_user = age_user;
         this.email_user = email_user;
+    }
+
+    public User() {
+    }
+
+    public User(String id_user, String name_user, int age_user, String email_user, String password_user) {
+        this.id_user = id_user;
+        this.name_user = name_user;
+        this.age_user = age_user;
+        this.email_user = email_user;
+        this.password_user = password_user;
     }
 
     public String getId_user() {
@@ -39,4 +51,12 @@ public class User {
         this.email_user = email_user;
     }
 
+    public String getPassword_user() {
+        return password_user;
+    }
+
+    public void setPassword_user(String password_user) {
+        this.password_user = password_user;
+    }
+    
 }

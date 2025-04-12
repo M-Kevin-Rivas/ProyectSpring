@@ -6,8 +6,9 @@ public class UserDto {
 
     private String title;
     private User userDto;
+    private boolean isYoungerThan25;
 
-    
+
     public String getTitle() {
         return title;
     }
@@ -20,7 +21,11 @@ public class UserDto {
     public void setUserDto(User userDto) {
         this.userDto = userDto;
     }
-
-    
+    public boolean isYoungerThan25() {
+        return isYoungerThan25;
+    }
+    public void setYoungerThan25(boolean isYoungerThan25) {
+        this.isYoungerThan25 = isYoungerThan25;
+    }
 
 }

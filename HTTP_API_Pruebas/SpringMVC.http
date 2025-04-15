@@ -1,0 +1,17 @@
+GET http://localhost:8080/api/pathVariable/message2/1100
+
+###Prueba POST usando RequestBody
+
+POST http://localhost:8080/api/methodsPost/createUser
+Content-Type: application/json
+
+{
+  "id_user": "1",
+  "name_user": "Juan Pérez",
+  "age_user": 30,
+  "email_user": "juan@example.com",
+  "password_user": "password123"
+}
+
+###Prueba inyectando datos de un archivo properties
+GET http://localhost:8080/values/configExample/propertiesOwner

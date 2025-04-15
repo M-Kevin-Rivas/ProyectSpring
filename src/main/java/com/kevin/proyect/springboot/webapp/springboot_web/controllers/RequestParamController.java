@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.kevin.proyect.springboot.webapp.springboot_web.models.dto.MessageDto;
 import com.kevin.proyect.springboot.webapp.springboot_web.models.dto.MessageMixDto;
 
+import jakarta.servlet.http.HttpServletRequest;
+
 @RestController
 @RequestMapping("/api/requestParam") //El nombre de la ruta es /api/requestParam en el navegador
 public class RequestParamController {
@@ -39,5 +41,23 @@ public class RequestParamController {
         //OJO si se asigna un tipo de dato que no corresponde como en el caso del parametro code que solo recibe numeros y en lugar de eso se le manda otro tipo, se rompe la aplicacion
         //y se debe reiniciar el servidor, esto es porque no se le asigna un valor por defecto y no se puede convertir el tipo de dato que se le asigna al parametro
     }
-    
+    @GetMapping("/messageMixRequest")
+    public MessageMixDto getNewMessageMixRequest(HttpServletRequest request) {
+        MessageMixDto messageMix = new MessageMixDto();
+        Integer code = 0;
+        try {
+            code = Integer.parseInt(request.getParameter("code"));
+        } catch (NumberFormatException e) {
+            code = -1; // Valor por defecto en caso de error
+        }
+        String msg = request.getParameter("msg") != null ? request.getParameter("msg") : "Otro mensaje por defecto desde el ingreso de parametros del metodo";
+        messageMix.setMessage(msg);
+        messageMix.setCode(code);
+        return messageMix;
+        //Para probarlo se debe ingresar la URL http://localhost:8080/api/requestParam/messageMixRequest?msg=AquipuedeIngresarElMensajeQueQuiera&code=IngresarCualquierNumero
+        //Este es otra forma de recibir los parametros, se usa el objeto HttpServletRequest para recibir los parametros que se le envian por la URL
+        //Se usa el metodo getParameter() para obtener el valor del parametro que se le envia por la URL, si no existe se le asigna un valor por defecto
+        //Esto es mas practico porque permite controlar posibles errores cuando se ingresan parametros que no corresponden al tipo de dato que se espera recibir
+        //Siendo de preferencia este un metodo mas seguro que el anterior
+    }
 }

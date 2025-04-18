@@ -26,8 +26,8 @@ public class RequestParamController {
         //messageFromURL.setMessage(param_message != null? param_message:"Mensaje por defecto desde el controlador"); //Se le asigna el valor del parametro que se recibe por la URL, si no existe se le asigna un mensaje por defecto
         //Se puede usar el operador ternario para asignar un valor a una variable dependiendo de si se cumple una condicion o no
         return messageFromURL;
-        //Para probarlo se debe ingresar la URL http://localhost:8080/api/requestParam/message?mensaje=AquipuedeIngresarElMensajeQueQuiera esto cuando se usa con la configuracion name="mensaje"
-        //Si no se usa el name="Mensaje" se debe ingresar la URL http://localhost:8080/api/requestParam/message?param_message=AquipuedeIngresarElMensajeQueQuiera
+        //Para probarlo se debe ingresar la URL http://localhost:8080/api/requestParam/messageURL?mensaje=AquipuedeIngresarElMensajeQueQuiera esto cuando se usa con la configuracion name="mensaje"
+        //Si no se usa el name="Mensaje" se debe ingresar la URL http://localhost:8080/api/requestParam/messageURL?param_message=AquipuedeIngresarElMensajeQueQuiera
     }
 
     @GetMapping("/messageMix")

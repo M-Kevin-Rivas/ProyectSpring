@@ -15,5 +15,18 @@
         <li th:if="${userOwner.password_user}" th:text="${userOwner.password_user}"></li>
         <li th:if="${userOwner.password_user == null}" th:text="${'No tiene password'}"></li>
         <!-- Es una forma de renderizar en el codigo HTML cuando falta informacion del controlador -->
-</body>
+    </ul>
+        <br><a th:href="@{/userList}" >Ver listado de usuarios</a>
+        <!--La siguiente linea es utilizando una variable, ya que lo que esta con comillas simples es tratado como un String-->
+        <br><a th:href="@{'/api/requestParam/messageURL?mensaje='+${tittle}}" >Ver mensaje1</a>
+        <!--La siguiente linea es si no existiera una variable donde todo es tratado como una cadena-->
+        <br><a th:href="@{'/api/requestParam/messageURL?mensaje=Oh no Spring!!!'}">Ver mensaje2 con RequestParam</a>
+        <!--La siguiente forma es propia de thymeleaf que hace lo mismo que la anterior linea, pero con el nombre del mensaje como variable-->
+        <br><a th:href="@{/api/requestParam/messageURL(mensaje='Oh no Spring!!!')}" >Ver mensaje3 con RequestParam</a>
+        <!--Este es otro ejemplo combinando con variables y valores ya establecidos-->
+        <br><a th:href="@{/api/requestParam/messageMix(mensaje=${tittle},code=12345)}" >Ver mensaje4 con RequestParam</a>
+        <!--La siguiente linea es un ejemplo con Path Variable -->
+        <br><a th:href="@{'/api/pathVariable/message/12345/'+${tittle}}" >Ver mensaje5 con PathVariable</a>
+
+    </body>
 </html>
